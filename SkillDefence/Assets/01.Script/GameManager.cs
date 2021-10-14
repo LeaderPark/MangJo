@@ -36,6 +36,6 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-
+    public int stage;
     public int Rampart_Hp;
 }
