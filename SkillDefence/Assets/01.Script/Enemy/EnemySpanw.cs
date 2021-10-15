@@ -6,24 +6,34 @@ using UnityEngine.UI;
 public class EnemySpanw : MonoBehaviour
 {
     public Button stageBtn;
-    public GameObject Mgr;
+    private int nowStage;
+    public Canvas enemyCanvas;
+
     public void Start()
     {
+        if(GameManager.Instance.stage != null)
+        {
+            nowStage = GameManager.Instance.stage;
+        }
 
         stageBtn.onClick.AddListener(() =>
         {
-            StartCoroutine(StageStart(GameManager.Instance.stage));
+            StartCoroutine(StageStart(
+                EnemyManager.Instance.enemy_amount[nowStage]
+                , EnemyManager.Instance.enemy_Spawn[0])
+                );
         });
     }
 
-    IEnumerator StageStart(int stageCount)
+    IEnumerator StageStart(int amount,GameObject enemy)
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < amount; i++)
         {
-            Instantiate(EnemyManager.Instance.enemy_Spawn[0],gameObject.transform);
+            GameObject e = Instantiate(enemy,gameObject.transform);
+            e.GetComponent<EnemyControl>().enemy_bar = Instantiate(EnemyManager.Instance.enemyHp,enemyCanvas.transform);
+            EnemyManager.Instance.left_enemy++;
             yield return new WaitForSeconds(0.5f);
         }
-        GameManager.Instance.stage++;
     }
 
 }

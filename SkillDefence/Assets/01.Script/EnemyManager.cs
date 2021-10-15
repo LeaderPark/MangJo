@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -29,17 +30,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
     #endregion
-    
+    //적 종류
     public List<GameObject> enemy_Spawn = new List<GameObject>();
-    //스테이지 구별
+    public List<int> enemy_amount = new List<int>();
 
-    void Start()
-    {
-        
-    }
+    public Slider enemyHp;
 
-    void Update()
-    {
-        
-    }
+    public int left_enemy;
 }

@@ -1,0 +1,72 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
+
+public class EnemyControl : MonoBehaviour
+{
+    public Transform rampartPos;
+
+    public float sightRange = 1;
+    public LayerMask whatIswall;
+    public bool bWallInSingRange;
+
+    bool isATK = false;
+
+    private float enemy_NowHp;
+    public float enemy_MaxHp;
+
+    public Slider enemy_bar;
+
+    private void Start()
+    {
+        enemy_NowHp = enemy_MaxHp;
+        enemy_bar.value = enemy_NowHp / enemy_MaxHp;
+        rampartPos = GameObject.Find("Rampart").GetComponent<Transform>();
+    }
+
+    void Update()
+    {
+        EnemyMove();
+    }
+    public void IsHit(int damage)
+    {
+        enemy_NowHp -= damage;
+        enemy_bar.value = enemy_NowHp / enemy_MaxHp;
+
+    }
+
+    private void EnemyMove()
+    {
+        bWallInSingRange = Physics2D.OverlapCircle(gameObject.transform.position, sightRange, whatIswall);
+        if (!isATK)
+        {
+            if (bWallInSingRange)
+            {
+                StartCoroutine(RampartATK());
+                Debug.Log("공격");
+            }
+            else
+            {
+                transform.position += new Vector3(-2f, 0, 0) * Time.deltaTime;
+            }
+        }
+    }
+
+    IEnumerator RampartATK()
+    {
+        isATK = true;
+        GameManager.Instance.IsDamage(10);
+        //에니매이션 실행
+        yield return new WaitForSeconds(1f);
+        isATK = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+
+    }
+}
