@@ -28,6 +28,7 @@ public class EnemyControl : MonoBehaviour
 
     void Update()
     {
+        enemy_bar.transform.position = gameObject.transform.position+ new Vector3(0,2,0);
         EnemyMove();
     }
     public void IsHit(int damage)
