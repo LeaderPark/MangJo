@@ -451,11 +451,12 @@ MonoBehaviour:
   - {fileID: 7881918204978236396, guid: f629999f77208df488d765c40db39be2, type: 3}
   - {fileID: 7881918204978236396, guid: 1dbf9cdf86c99534b8e88b918d72629a, type: 3}
   - {fileID: 7881918204978236396, guid: d2ceabbb31ea6f94b9dbf198cf1c4447, type: 3}
+  - {fileID: 7881918204978236396, guid: fee202bd7f6c14f45936bcca6adc002e, type: 3}
   skillParent: {fileID: 638064856}
   spawnPoint: {fileID: 1364501886}
   skillList: []
   createTime: 1
-  maxEnemy: 5
+  maxEnemy: 20
 --- !u!4 &1630110185
 Transform:
   m_ObjectHideFlags: 0

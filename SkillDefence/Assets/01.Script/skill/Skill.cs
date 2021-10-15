@@ -11,7 +11,7 @@ public class Skill : MonoBehaviour
     public event Action OnDeath;
     public RectTransform rect;
 
-    void Start()
+    public void Start()
     {
         rect = GetComponent<RectTransform>();
     }
@@ -40,5 +40,15 @@ public class Skill : MonoBehaviour
     {
         if (OnDeath != null) OnDeath();
         dead = true;
+    }
+
+    public void Move()
+    {
+        if(rect.anchoredPosition.x <= 2400f)
+        {
+            float x1 = rect.anchoredPosition.x;
+            x1 += 1f;
+            rect.anchoredPosition = new Vector3(x1, 0);
+        }
     }
 }

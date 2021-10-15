@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestSkill : Skill
 {
     public float bloodEffectTime = 0.5f;
-
+    
     public override void OnDamage(float damage, Vector3 position, Vector3 normal)
     {
         if (dead) return;
@@ -28,15 +28,5 @@ public class TestSkill : Skill
     public override void Die()
     {
         base.Die();
-    }
-
-    public void Move()
-    {
-        if(rect.anchoredPosition.x <= 2400f)
-        {
-            float x1 = rect.anchoredPosition.x;
-            x1 += 1f;
-            rect.anchoredPosition = new Vector3(x1, 0);
-        }
     }
 }

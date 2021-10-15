@@ -16,11 +16,9 @@ public class SkillManager : MonoBehaviour
     public List<Skill> skillList = new List<Skill>();
 
     [Header("Enemy Create Info")]
-    public float createTime = 1f;
     public int maxEnemy = 5;
     private int enemyCount = 0;
     private bool isGameOver = false;
-    private WaitForSeconds wsSpawn;
     void Awake()
     {
         if(instance != null)
@@ -40,7 +38,7 @@ public class SkillManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnSkill());
     }
 
     private GameObject CreateSkill()
@@ -53,7 +51,7 @@ public class SkillManager : MonoBehaviour
             );
     }
 
-    IEnumerator SpawnEnemy()
+    IEnumerator SpawnSkill()
     {
         while(!isGameOver)
         {
@@ -67,20 +65,23 @@ public class SkillManager : MonoBehaviour
                     sk = e.GetComponent<Skill>();
                     skillList.Add(sk);
                 }
+
                 enemyCount++;
-                sk.transform.position = spawnPoint.position;
+                sk.transform.position = spawnPoint.transform.position;
+                sk.transform.SetParent(spawnPoint);
                 sk.gameObject.SetActive(true);
+                sk.Move();
 
-                Action handler = null;
-                handler = () =>
-                {
-                    enemyCount--;
-                    sk.OnDeath -= handler;
-                };
+                // Action handler = null;
+                // handler = () =>
+                // {
+                //     enemyCount--;
+                //     sk.OnDeath -= handler;
+                // };
 
-                sk.OnDeath += handler;
+                // sk.OnDeath += handler;
             }
-            yield return wsSpawn;
+            yield return new WaitForSeconds(1f);
         }
     }
 }

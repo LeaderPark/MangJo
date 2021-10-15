@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemySpanw : MonoBehaviour
+public class EnemySpawn : MonoBehaviour
 {
     public Button stageBtn;
     private int nowStage;
