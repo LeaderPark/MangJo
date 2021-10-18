@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rampartPos: {fileID: 0}
   sightRange: 2
+  atkSpeed: 1
   whatIswall:
     serializedVersion: 2
     m_Bits: 8

@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class EnemyControl : MonoBehaviour
 {
     public Transform rampartPos;
-
+    [Header("공격 사거리")]
     public float sightRange = 1;
+    [Header("공격 속도")]
+    public float atkSpeed;
     public LayerMask whatIswall;
     public bool bWallInSingRange;
 
@@ -60,7 +62,7 @@ public class EnemyControl : MonoBehaviour
         isATK = true;
         GameManager.Instance.IsDamage(10);
         //에니매이션 실행
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(atkSpeed);
         isATK = false;
     }
 

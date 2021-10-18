@@ -8,7 +8,7 @@ public class EnemySpawn : MonoBehaviour
     public Button stageBtn;
     private int nowStage;
     public Canvas enemyCanvas;
-
+    public PlayerAtk PA;
     public void Start()
     {
         if(GameManager.Instance.stage != null)
@@ -34,6 +34,7 @@ public class EnemySpawn : MonoBehaviour
             EnemyManager.Instance.left_enemy++;
             yield return new WaitForSeconds(0.5f);
         }
+        PA.atkPlayer();
     }
 
 }
