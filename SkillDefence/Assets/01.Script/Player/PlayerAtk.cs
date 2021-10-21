@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class PlayerAtk : MonoBehaviour
 {
+    public void atkPlayer()
+    {
 
+    }
 }

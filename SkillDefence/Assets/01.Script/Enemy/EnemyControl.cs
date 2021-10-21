@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class EnemyControl : MonoBehaviour
 {
     public Transform rampartPos;
-    [Header("°ø°Ý »ç°Å¸®")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½")]
     public float sightRange = 1;
-    [Header("°ø°Ý ¼Óµµ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½")]
     public float atkSpeed;
     public LayerMask whatIswall;
     public bool bWallInSingRange;
@@ -48,7 +48,7 @@ public class EnemyControl : MonoBehaviour
             if (bWallInSingRange)
             {
                 StartCoroutine(RampartATK());
-                Debug.Log("°ø°Ý");
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½");
             }
             else
             {
@@ -61,7 +61,7 @@ public class EnemyControl : MonoBehaviour
     {
         isATK = true;
         GameManager.Instance.IsDamage(10);
-        //¿¡´Ï¸ÅÀÌ¼Ç ½ÇÇà
+        //ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(atkSpeed);
         isATK = false;
     }

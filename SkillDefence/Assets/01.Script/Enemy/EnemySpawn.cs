@@ -23,6 +23,8 @@ public class EnemySpawn : MonoBehaviour
                 , EnemyManager.Instance.enemy_Spawn[0])
                 );
         });
+
+        PA = GetComponent<PlayerAtk>();
     }
 
     IEnumerator StageStart(int amount,GameObject enemy)
