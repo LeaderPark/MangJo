@@ -14,6 +14,8 @@ public class EnemyControl : MonoBehaviour
     public LayerMask whatIswall;
     public bool bWallInSingRange;
 
+    public float enemySpeed =2;
+
     bool isATK = false;
 
     private float enemy_NowHp;
@@ -21,8 +23,10 @@ public class EnemyControl : MonoBehaviour
 
     public Slider enemy_bar;
 
+    private Rigidbody2D rigi2d;
     private void Start()
     {
+        rigi2d = GetComponent<Rigidbody2D>();
         enemy_NowHp = enemy_MaxHp;
         enemy_bar.value = enemy_NowHp / enemy_MaxHp;
         rampartPos = GameObject.Find("Rampart").GetComponent<Transform>();
@@ -37,7 +41,13 @@ public class EnemyControl : MonoBehaviour
     {
         enemy_NowHp -= damage;
         enemy_bar.value = enemy_NowHp / enemy_MaxHp;
-
+        rigi2d.AddForce(transform.right * enemySpeed*1.5f);
+        if(enemy_NowHp <= 0)
+        {
+            EnemyManager.Instance.RemoveEnemyList(gameObject);
+            Destroy(enemy_bar.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     private void EnemyMove()
@@ -52,7 +62,7 @@ public class EnemyControl : MonoBehaviour
             }
             else
             {
-                transform.position += new Vector3(-2f, 0, 0) * Time.deltaTime;
+                transform.position += new Vector3(-enemySpeed, 0, 0) * Time.deltaTime;
             }
         }
     }

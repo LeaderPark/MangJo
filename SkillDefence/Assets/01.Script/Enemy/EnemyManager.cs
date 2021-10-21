@@ -37,4 +37,18 @@ public class EnemyManager : MonoBehaviour
     public Slider enemyHp;
 
     public int left_enemy;
+
+    public List<GameObject> spawnEnemys = new List<GameObject>();
+
+    public void AddEnemyList(GameObject addEnemy)
+    {
+        left_enemy++;
+        spawnEnemys.Add(addEnemy);
+    }
+
+    public void RemoveEnemyList(GameObject removeEnemy)
+    {
+        left_enemy--;
+        spawnEnemys.Remove(removeEnemy);
+    }
 }

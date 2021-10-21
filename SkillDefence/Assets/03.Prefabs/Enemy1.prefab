@@ -120,7 +120,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   bWallInSingRange: 1
-  enemy_MaxHp: 10
+  enemy_MaxHp: 100
   enemy_bar: {fileID: 8567073280631863573, guid: 895f2b29fa49df74397e9970950346f3, type: 3}
 --- !u!50 &8144084776631446950
 Rigidbody2D:
