@@ -98,6 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 4
   bullet_Damage: 20
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 64
+  bEnemyInSingRange: 0
 --- !u!70 &8636491612578588098
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

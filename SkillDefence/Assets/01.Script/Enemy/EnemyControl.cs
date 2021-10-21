@@ -58,7 +58,7 @@ public class EnemyControl : MonoBehaviour
             if (bWallInSingRange)
             {
                 StartCoroutine(RampartATK());
-                Debug.Log("����");
+                Debug.Log("공격");
             }
             else
             {

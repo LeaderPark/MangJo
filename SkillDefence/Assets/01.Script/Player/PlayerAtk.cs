@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class PlayerAtk : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    public void atkPlayer()
-    {
 
-=======
     public float atkSpeed;
 
     public GameObject bulletPrefab;
@@ -35,6 +31,5 @@ public class PlayerAtk : MonoBehaviour
             Instantiate(bulletPrefab, bulletParent);
             isHit = false;
         }
->>>>>>> Stashed changes
     }
 }
