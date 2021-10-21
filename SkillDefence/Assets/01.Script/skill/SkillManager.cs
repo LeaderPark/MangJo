@@ -16,8 +16,8 @@ public class SkillManager : MonoBehaviour
     public List<Skill> skillList = new List<Skill>();
 
     [Header("Enemy Create Info")]
-    public int maxEnemy = 5;
-    private int enemyCount = 0;
+    public int maxskill = 10;
+    private int skillCount = 0;
     private bool isGameOver = false;
     void Awake()
     {
@@ -55,7 +55,7 @@ public class SkillManager : MonoBehaviour
     {
         while(!isGameOver)
         {
-            if(enemyCount < maxEnemy)
+            if(skillCount < maxskill)
             {
                 Skill sk = skillList.Find(x => !x.gameObject.activeSelf);
 
@@ -66,20 +66,10 @@ public class SkillManager : MonoBehaviour
                     skillList.Add(sk);
                 }
 
-                enemyCount++;
+                skillCount++;
                 sk.transform.position = spawnPoint.transform.position;
                 sk.transform.SetParent(spawnPoint);
                 sk.gameObject.SetActive(true);
-                sk.Move();
-
-                // Action handler = null;
-                // handler = () =>
-                // {
-                //     enemyCount--;
-                //     sk.OnDeath -= handler;
-                // };
-
-                // sk.OnDeath += handler;
             }
             yield return new WaitForSeconds(1f);
         }

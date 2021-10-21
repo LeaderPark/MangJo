@@ -133,6 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c418e51f181c44bf0275a54b40961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initHealth: 0
   rect: {fileID: 0}
-  bloodEffectTime: 0.5
+  isMove: 0
