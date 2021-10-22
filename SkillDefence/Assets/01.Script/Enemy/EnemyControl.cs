@@ -70,9 +70,8 @@ public class EnemyControl : MonoBehaviour
     IEnumerator RampartATK()
     {
         isATK = true;
-        GameManager.Instance.IsDamage(10);
-        //���ϸ��̼� ����
         yield return new WaitForSeconds(atkSpeed);
+        GameManager.Instance.IsDamage(10);
         isATK = false;
     }
 

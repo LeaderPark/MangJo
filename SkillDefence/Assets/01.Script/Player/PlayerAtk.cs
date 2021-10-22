@@ -11,7 +11,7 @@ public class PlayerAtk : MonoBehaviour
 
     public Transform bulletParent;
 
-    private float sightRange = 100;
+    public float sightRange;
     public LayerMask whatIsEnemy;
     public bool bEnemyInSingRange;
 
@@ -31,5 +31,12 @@ public class PlayerAtk : MonoBehaviour
             Instantiate(bulletPrefab, bulletParent);
             isHit = false;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+
     }
 }

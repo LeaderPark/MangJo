@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    #region ½Ì±ÛÅæ
+    #region ì”½ê¸€í†¤
     private static GameManager instance;
     public static GameManager Instance
     {
@@ -45,25 +45,6 @@ public class GameManager : MonoBehaviour
     {
         Rampart_NowHp -= hitDps;
         Rampart_Hp_Ui.value = Rampart_NowHp / Rampart_MaxHp;
-        Debug.Log(Rampart_NowHp / Rampart_MaxHp);
         Rampart_Hp_tex.text = Rampart_NowHp.ToString();
-    }
-
-
-    private GameObject NearEnemy()
-    {
-        string tag = "Enemy";
-        // Å½»öÇÒ ¿ÀºêÁ§Æ® ¸ñ·ÏÀ» List ·Î ÀúÀåÇÕ´Ï´Ù.
-        var objects = GameObject.FindGameObjectsWithTag(tag).ToList();
-
-        // LINQ ¸Þ¼Òµå¸¦ ÀÌ¿ëÇØ °¡Àå °¡±î¿î ÀûÀ» Ã£½À´Ï´Ù.
-        var neareastObject = objects
-            .OrderBy(obj =>
-            {
-                return Vector3.Distance(transform.position, obj.transform.position);
-            })
-        .FirstOrDefault();
-
-        return neareastObject;
     }
 }

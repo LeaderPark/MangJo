@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-    #region ½Ì±ÛÅæ
+    #region ì‹±ê¸€í†¤
     private static EnemyManager instance;
     public static EnemyManager Instance
     {
@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
     #endregion
-    //Àû Á¾·ù
+    //ì  ì¢…ë¥˜
     public List<GameObject> enemy_Spawn = new List<GameObject>();
     public List<int> enemy_amount = new List<int>();
 
@@ -39,6 +39,8 @@ public class EnemyManager : MonoBehaviour
     public int left_enemy;
 
     public List<GameObject> spawnEnemys = new List<GameObject>();
+
+    public bool stageClear = true;
 
     public void AddEnemyList(GameObject addEnemy)
     {
@@ -50,5 +52,10 @@ public class EnemyManager : MonoBehaviour
     {
         left_enemy--;
         spawnEnemys.Remove(removeEnemy);
+        if (left_enemy <= 0)
+        {
+            GameManager.Instance.stage++;
+            stageClear = true;
+        }
     }
 }

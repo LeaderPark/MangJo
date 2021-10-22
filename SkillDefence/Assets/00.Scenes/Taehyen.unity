@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 106818972}
   - component: {fileID: 106818971}
   - component: {fileID: 106818970}
+  - component: {fileID: 106818973}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -193,6 +194,7 @@ MonoBehaviour:
   enemyHp: {fileID: 8567073280631863573, guid: 895f2b29fa49df74397e9970950346f3, type: 3}
   left_enemy: 0
   spawnEnemys: []
+  stageClear: 1
 --- !u!114 &106818971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +225,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &106818973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106818969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb83006873ec6045bb1e9ac88a0af4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextStageBtn: {fileID: 897598653}
+  enemyCanvas: {fileID: 564493663}
+  spawnEnemy: {fileID: 548288129}
 --- !u!1 &360280273
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +416,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 548288130}
-  - component: {fileID: 548288131}
   m_Layer: 0
   m_Name: EnemySpawn
   m_TagString: Untagged
@@ -415,26 +431,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548288129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 5, z: 0}
+  m_LocalPosition: {x: 20.09, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 90607676}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &548288131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548288129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b104b3fc0b9c0af48b3793963f25aa46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageBtn: {fileID: 897598653}
-  enemyCanvas: {fileID: 564493663}
 --- !u!1 &564493660
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,19 +729,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 897598654}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1505218263}
-        m_TargetAssemblyTypeName: PlayerAtk, Assembly-CSharp
-        m_MethodName: atkPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &897598654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,7 +1103,7 @@ Canvas:
   m_GameObject: {fileID: 1328293362}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1463,6 +1453,7 @@ MonoBehaviour:
   atkSpeed: 0.5
   bulletPrefab: {fileID: 2614853238425083235, guid: 37fabc2df206fd447a95fb06ffbb06e5, type: 3}
   bulletParent: {fileID: 913491551}
+  sightRange: 15
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
@@ -1775,8 +1766,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121217656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1624, y: 0.3921, z: -90}
-  m_LocalScale: {x: 18.430523, y: 4.382435, z: 1}
+  m_LocalPosition: {x: 7.2569, y: 0.3921, z: -90}
+  m_LocalScale: {x: 33.268936, y: 4.382435, z: 1}
   m_Children: []
   m_Father: {fileID: 90607676}
   m_RootOrder: 0
