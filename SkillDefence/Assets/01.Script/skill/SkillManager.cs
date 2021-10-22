@@ -10,7 +10,7 @@ public class SkillManager : MonoBehaviour
 {
     public static SkillManager instance;
     public GameObject[] skillPrefab; 
-    public GameObject skillParent;
+    public Transform skillParent;
     public Transform spawnPoint;
 
     public List<Skill> skillList = new List<Skill>();
@@ -68,7 +68,7 @@ public class SkillManager : MonoBehaviour
 
                 skillCount++;
                 sk.transform.position = spawnPoint.transform.position;
-                sk.transform.SetParent(spawnPoint);
+                sk.transform.SetParent(skillParent);
                 sk.gameObject.SetActive(true);
             }
             yield return new WaitForSeconds(1f);

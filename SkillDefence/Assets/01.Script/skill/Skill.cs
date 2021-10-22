@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    public RectTransform rect;
 
     public bool isMove = false;
 
