@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-    #region 싱글톤
+    #region ?깃???
     private static EnemyManager instance;
     public static EnemyManager Instance
     {
@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
     #endregion
-    //적 종류
+    //??醫낅쪟
     public List<GameObject> enemy_Spawn = new List<GameObject>();
     public List<int> enemy_amount = new List<int>();
 

@@ -8,7 +8,6 @@ public class BulletMove : MonoBehaviour
 
     public int bullet_Damage = 20;
 
-    private float sightRange = 100;
     public LayerMask whatIsEnemy;
     public bool bEnemyInSingRange;
 

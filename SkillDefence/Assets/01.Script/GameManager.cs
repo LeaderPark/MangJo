@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    #region ì”½ê¸€í†¤
+    #region ?½ê???
     private static GameManager instance;
     public static GameManager Instance
     {
