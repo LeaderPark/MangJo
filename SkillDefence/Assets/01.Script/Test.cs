@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    List<Dictionary<string, object>> data_Dialog = CSVReader.Read("DataTable");
+
     void Start()
     {
-        for (int i = 0; i < data_Dialog.Count; i++)
-        {
-            Debug.Log(data_Dialog[i]["Content"].ToString());
-        }
-    }
+        List<Dictionary<string, object>> data = CSVReader.Read("DataTable");
 
-    void Update()
-    {
-        
+        for (var i = 0; i < data.Count; i++)
+        {
+            Debug.Log("스테이지 " + data[i]["Stage"] + " 적 번호 : " + data[i]["Monster"] + " 몇 명? : " + data[i]["Count"]);
+        }
+
     }
 }
