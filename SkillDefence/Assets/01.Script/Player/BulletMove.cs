@@ -10,10 +10,10 @@ public class BulletMove : MonoBehaviour
 
     public LayerMask whatIsEnemy;
     public bool bEnemyInSingRange;
-
+    
     void Update()
     {
-            transform.position += new Vector3(bulletSpeed, -0.5f, 0) * Time.deltaTime;
+            transform.position += new Vector3(bulletSpeed, -0.2f, 0) * Time.deltaTime;
     }
 
     public void OnCollisionEnter2D(Collision2D col)
@@ -24,5 +24,7 @@ public class BulletMove : MonoBehaviour
             EC.IsHit(bullet_Damage);
             Destroy(gameObject);
         }
+
     }
+
 }
