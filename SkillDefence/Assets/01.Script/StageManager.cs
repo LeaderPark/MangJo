@@ -32,8 +32,6 @@ public class StageManager : MonoBehaviour
         });
     }
 
-
-
     private void Update()
     {
         if (EnemyManager.Instance.stageClear)
