@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour
         Rampart_Hp_Ui.value = Rampart_NowHp / Rampart_MaxHp;
         Rampart_Hp_tex.text = Rampart_NowHp.ToString();
     }
+
+    private void Update() {
+        Rampart_Hp_Ui.value = Rampart_NowHp / Rampart_MaxHp;
+    }
     public void IsDamage(int hitDps)
     {
         Rampart_NowHp -= hitDps;
