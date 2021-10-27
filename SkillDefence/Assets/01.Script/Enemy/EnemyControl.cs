@@ -34,6 +34,10 @@ public class EnemyControl : MonoBehaviour
     {
         enemy_bar.transform.position = gameObject.transform.position+ new Vector3(0,2,0);
         EnemyMove();
+        if(GameManager.Instance.Rampart_NowHp<0){
+            Destroy(gameObject);
+            Destroy(enemy_bar.gameObject);
+        }
     }
     public void IsHit(int damage)
     {

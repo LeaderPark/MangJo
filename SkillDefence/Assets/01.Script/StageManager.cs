@@ -14,12 +14,9 @@ public class StageManager : MonoBehaviour
 
     public Canvas enemyCanvas;
     public GameObject spawnEnemy;
-    public GameObject bulletReset;
-
     private void Start()
     {
         List<Dictionary<string, object>> data = CSVReader.Read("DataTable");
-        bulletReset.SetActive(false);
 
         StageStart(data);
         stageCanves.alpha = 0;
@@ -42,12 +39,10 @@ public class StageManager : MonoBehaviour
         if (EnemyManager.Instance.stageClear)
         {
             DOTween.To(() => stageCanves.alpha, x => stageCanves.alpha = x, 1, 0.5f);
-            bulletReset.SetActive(true);
         }
         else
         {
             DOTween.To(() => stageCanves.alpha, x => stageCanves.alpha = x, 0, 0.5f);
-            bulletReset.SetActive(false);
         }
     }
 

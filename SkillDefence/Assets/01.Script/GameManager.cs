@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public int stage;
-    private float Rampart_NowHp;
+    public float Rampart_NowHp;
     public float Rampart_MaxHp;
     public Slider Rampart_Hp_Ui;
     public Text Rampart_Hp_tex;

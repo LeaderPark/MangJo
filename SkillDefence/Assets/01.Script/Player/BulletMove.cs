@@ -10,7 +10,9 @@ public class BulletMove : MonoBehaviour
 
     public LayerMask whatIsEnemy;
     public bool bEnemyInSingRange;
-    
+    private void Start() {
+        StartCoroutine(BulletDes());
+    }
     void Update()
     {
             transform.position += new Vector3(bulletSpeed, -0.2f, 0) * Time.deltaTime;
@@ -25,6 +27,10 @@ public class BulletMove : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+    IEnumerator BulletDes(){
+        yield return new WaitForSeconds(3.5f);
+        Destroy(gameObject);
     }
 
 }
