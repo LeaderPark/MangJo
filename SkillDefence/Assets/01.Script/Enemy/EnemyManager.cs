@@ -55,6 +55,7 @@ public class EnemyManager : MonoBehaviour
             GameManager.Instance.stage++;
             stageClear = true;
             GameManager.Instance.Reset();
+            GameManager.Instance.GetCoin(200);
         }
     }
 

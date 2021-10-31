@@ -47,6 +47,7 @@ public class EnemyControl : MonoBehaviour
         if(enemy_NowHp <= 0)
         {
             EnemyManager.Instance.RemoveEnemyList(gameObject);
+            GameManager.Instance.GetCoin(15);
             Destroy(enemy_bar.gameObject);
             Destroy(gameObject);
         }

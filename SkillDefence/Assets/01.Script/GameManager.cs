@@ -39,7 +39,10 @@ public class GameManager : MonoBehaviour
 
     public Text stageTex;
 
+    public int coin;
     public Text stageState;
+
+    public ParticleSystem coinEffect;
     public void Start()
     {
         Rampart_NowHp = Rampart_MaxHp;
@@ -65,5 +68,10 @@ public class GameManager : MonoBehaviour
         stageState.text = "StageClear";
         stageState.color = Color.white;
         //리셋할것 추가
+    }
+    public void GetCoin(int getCoin){
+        coin += getCoin;
+        coinEffect.Play();
+        
     }
 }
