@@ -16,7 +16,7 @@ public class EnemyControl : MonoBehaviour
 
     bool isATK = false;
 
-    private float enemy_NowHp;
+    public float enemy_NowHp;
     public float enemy_MaxHp;
 
     public Slider enemy_bar;
@@ -32,12 +32,17 @@ public class EnemyControl : MonoBehaviour
 
     void Update()
     {
+        enemy_bar.value = enemy_NowHp / enemy_MaxHp;
         enemy_bar.transform.position = gameObject.transform.position+ new Vector3(0,2,0);
         EnemyMove();
+<<<<<<< Updated upstream
         if(GameManager.Instance.Rampart_NowHp<0){
             Destroy(gameObject);
             Destroy(enemy_bar.gameObject);
         }
+=======
+        enemy_bar.value = enemy_NowHp / enemy_MaxHp;
+>>>>>>> Stashed changes
     }
     public void IsHit(int damage)
     {
