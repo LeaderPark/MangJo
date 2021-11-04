@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public int stage;
     public float Rampart_NowHp;
     public float Rampart_MaxHp;
+
+    public int bullet_Damage = 20;
     public Slider Rampart_Hp_Ui;
     public Text Rampart_Hp_tex;
 

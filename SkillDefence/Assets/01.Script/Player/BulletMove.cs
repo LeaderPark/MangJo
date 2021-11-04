@@ -6,7 +6,6 @@ public class BulletMove : MonoBehaviour
 {
     public float bulletSpeed;
 
-    public int bullet_Damage = 20;
 
     public LayerMask whatIsEnemy;
     public bool bEnemyInSingRange;
@@ -23,7 +22,7 @@ public class BulletMove : MonoBehaviour
         if(col.gameObject.tag == "Enemy")
         {
             EnemyControl EC = col.gameObject.GetComponent<EnemyControl>();
-            EC.IsHit(bullet_Damage);
+            EC.IsHit(GameManager.Instance.bullet_Damage);
             Destroy(gameObject);
         }
 
