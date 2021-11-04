@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class SkillManagerTest : MonoBehaviour
+public class SkillSystem : MonoBehaviour
 {
     [SerializeField]
     GameObject blockBox;
@@ -15,9 +15,6 @@ public class SkillManagerTest : MonoBehaviour
     Transform[] blockPosition = new Transform[maxBlockCount];
 
     public List<GameObject> skillBlocks = new List<GameObject>();
-
-    IEnumerator OnCreateBlock;
-
     IEnumerator[] OnMoveBlock = new IEnumerator[maxBlockCount];
 
     const int maxBlockCount = 9;
@@ -37,17 +34,19 @@ public class SkillManagerTest : MonoBehaviour
     // [SerializeField]
     // StageSoldierInfo m_stageSoldierInfo;
 
+    public float createSkillBlock = 1.5f;
+
     bool stageClear = false;
     bool gameOver = false;
 
     void Start() 
     {
-        OnCreateBlock = CreateBlock();
-        StartCoroutine(OnCreateBlock);
+        StartCoroutine(CreateBlock());
     }
 
     void Update() 
     {
+        
         for(int index = 0; index < skillBlocks.Count; index++)
         {
             if(skillBlocks[index].GetComponent<SkillBlock>().GetBlockIndex() != index)
@@ -64,7 +63,7 @@ public class SkillManagerTest : MonoBehaviour
             stageClear = true;
             //StageManager.Instance.SetClear(true);
 
-            StopCoroutine(OnCreateBlock);
+            StopCoroutine(CreateBlock());
             //StartCoroutine(StageClear());
         }
 
@@ -72,7 +71,7 @@ public class SkillManagerTest : MonoBehaviour
         {
             gameOver = true;
 
-            StopCoroutine(OnCreateBlock);
+            StopCoroutine(CreateBlock());
             //StartCoroutine(GameOver());
         }
     }
@@ -81,12 +80,9 @@ public class SkillManagerTest : MonoBehaviour
     {
         while (true)
         {
-            
-            yield return new WaitForSeconds(2f);
-
+            yield return new WaitForSeconds(createSkillBlock);
             if(skillBlocks.Count < maxBlockCount)
             {
-                Debug.Log("CreateBlock");
                 int random = UnityEngine.Random.Range(0, 3);
                 GameObject block = Instantiate(Resources.Load("Block/BlockUI") as GameObject, blockBox.transform);
                 block.transform.position = blockPosition[maxBlockCount - 1].position;
@@ -272,6 +268,6 @@ public class SkillManagerTest : MonoBehaviour
 
     void OnFinishedStage()
     {
-        StopCoroutine(OnCreateBlock);
+        StopCoroutine(CreateBlock());
     }
 }
