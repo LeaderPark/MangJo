@@ -22,6 +22,8 @@ public class EnemyControl : MonoBehaviour
     public Slider enemy_bar;
 
     private Rigidbody2D rigi2d;
+
+
     private void Start()
     {
         rigi2d = GetComponent<Rigidbody2D>();
@@ -48,7 +50,7 @@ public class EnemyControl : MonoBehaviour
         if(enemy_NowHp <= 0)
         {
             EnemyManager.Instance.RemoveEnemyList(gameObject);
-            GameManager.Instance.GetCoin(15);
+            EnemyManager.Instance.GetCoin(15);
             Destroy(enemy_bar.gameObject);
             Destroy(gameObject);
         }
@@ -84,4 +86,6 @@ public class EnemyControl : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
 
     }
+
+
 }

@@ -12,6 +12,8 @@ public class StageManager : MonoBehaviour
     public Button reStart;
     public CanvasGroup stageCanves;
 
+    public Button shopBtn;
+
     public Canvas enemyCanvas;
     public GameObject spawnEnemy;
     private void Start()
@@ -29,6 +31,10 @@ public class StageManager : MonoBehaviour
         {
         if (GameManager.Instance.stage > 0) GameManager.Instance.stage--;
             StageStart(data);
+        });
+
+        shopBtn.onClick.AddListener(()=>{
+            SceneManager.LoadScene("Shop");
         });
     }
 

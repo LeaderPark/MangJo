@@ -40,6 +40,10 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> spawnEnemys = new List<GameObject>();
 
     public bool stageClear = true;
+
+    public ParticleSystem coinEffect;
+
+
     public void AddEnemyList(GameObject addEnemy)
     {
         left_enemy++;
@@ -55,8 +59,25 @@ public class EnemyManager : MonoBehaviour
             GameManager.Instance.stage++;
             stageClear = true;
             GameManager.Instance.Reset();
-            GameManager.Instance.GetCoin(200);
+            GetCoin(200);
         }
     }
+
+
+    public void GetCoin(int getCoin){
+
+        if(GameManager.Instance.dic.ContainsKey("Coin")){
+            GameManager.Instance.dic["Coin"] += getCoin;
+            Debug.Log( GameManager.Instance.dic["Coin"]);
+        }
+        
+
+        coinEffect.Play();
+        InGameScript.Instance.coinTex.text = GameManager.Instance.dic["Coin"].ToString();
+        
+
+    }
+
+    
 
 }

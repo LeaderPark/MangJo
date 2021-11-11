@@ -8,7 +8,7 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    #region ?쎄???
+    #region 씽글톤
     private static GameManager instance;
     public static GameManager Instance
     {
@@ -29,56 +29,38 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
     #endregion
 
     public int stage;
     public float Rampart_NowHp;
-    public float Rampart_MaxHp;
 
+    public Dictionary<string,float> dic = new Dictionary<string, float>(){
+        {"Coin", 0},
+        {"bullet_Damage",20},
+        {"Rampart_MaxHp",100}
+    };
     public int bullet_Damage = 20;
-    public Slider Rampart_Hp_Ui;
-    public Text Rampart_Hp_tex;
-
-    public Text stageTex;
-
-    public int coin;
-    public Text stageState;
-
-    public ParticleSystem coinEffect;
-    public void Start()
-    {
-        Rampart_NowHp = Rampart_MaxHp;
-        Rampart_Hp_Ui.value = Rampart_NowHp / Rampart_MaxHp;
-        Rampart_Hp_tex.text = Rampart_NowHp.ToString();
-    }
-
-    private void Update() {
-        Rampart_Hp_Ui.value = Rampart_NowHp / Rampart_MaxHp;
-        Rampart_Hp_tex.text = Rampart_NowHp.ToString();
-    }
     public void IsDamage(int hitDps)
     {
         Rampart_NowHp -= hitDps;
         if(Rampart_NowHp <=0){
             //게임 오버
             EnemyManager.Instance.stageClear = true;
-            stageState.text = "StageFail";
-            stageState.color = Color.red;
+            InGameScript.Instance.stageState.text = "StageFail";
+            InGameScript.Instance.stageState.color = Color.red;
         }
-        Rampart_Hp_Ui.value = Rampart_NowHp / Rampart_MaxHp;
-        Rampart_Hp_tex.text = Rampart_NowHp.ToString();
+        InGameScript.Instance.Rampart_Hp_Ui.value = Rampart_NowHp / dic["Rampart_MaxHp"];
+        InGameScript.Instance.coinTex.text = Rampart_NowHp.ToString();
     }
     public void Reset(){
-        float a =  Rampart_NowHp - Rampart_MaxHp;
+        float a =  Rampart_NowHp - dic["Rampart_MaxHp"];
         IsDamage((int)a);
-        stageTex.text = (stage+1)+" 스테이지";
-        stageState.text = "StageClear";
-        stageState.color = Color.white;
+        InGameScript.Instance.stageTex.text = (GameManager.Instance.stage+1)+" 스테이지";
+        InGameScript.Instance.stageState.text = "StageClear";
+        InGameScript.Instance.stageState.color = Color.white;
         //리셋할것 추가
     }
-    public void GetCoin(int getCoin){
-        coin += getCoin;
-        coinEffect.Play();
-        
-    }
+
+
 }

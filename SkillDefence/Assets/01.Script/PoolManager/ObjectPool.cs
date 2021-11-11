@@ -34,7 +34,6 @@ public class ObjectPool : Singleton<ObjectPool>
             if(objectPool[ix].poolItemName.Equals(itemName))
                 return objectPool[ix];
         }
-        Debug.LogWarning("There's no matched pool list.");
         return null;
     }
 }
