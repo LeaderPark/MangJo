@@ -13,19 +13,28 @@ public class ShopManager : MonoBehaviour
     public Text nowMoney;
     public CanvasGroup moneyCanvas;
 
+    public GameObject shop;
+
+    public GameObject inGame;
     
     private void Start() {
-        float coin = GameManager.Instance.dic["Coin"];
-        Debug.Log(coin);
-        nowMoney.text = coin.ToString()+ " 원";    
+
+
 
         exitShop.onClick.AddListener(()=>{
             ExitShop();
         });
     }
 
+    private void Update() {
+        if(EnemyManager.Instance.stageClear){
+            float coin = GameManager.Instance.dic["Coin"];
+            nowMoney.text = coin.ToString()+ " 원";    
+        }    
+    }
     public void ExitShop(){
-        SceneManager.LoadScene("Taehyen");
+        shop.SetActive(false);
+        inGame.SetActive(true);
     }
 
     public IEnumerator NoMoney(){

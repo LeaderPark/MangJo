@@ -56,9 +56,7 @@ public class EnemyManager : MonoBehaviour
         spawnEnemys.Remove(removeEnemy);
         if (left_enemy <= 0)
         {
-            GameManager.Instance.stage++;
             stageClear = true;
-            GameManager.Instance.Reset();
             GetCoin(200);
         }
     }
@@ -68,7 +66,6 @@ public class EnemyManager : MonoBehaviour
 
         if(GameManager.Instance.dic.ContainsKey("Coin")){
             GameManager.Instance.dic["Coin"] += getCoin;
-            Debug.Log( GameManager.Instance.dic["Coin"]);
         }
         
 

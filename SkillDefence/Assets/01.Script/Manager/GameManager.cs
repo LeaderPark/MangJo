@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public int stage;
     public float Rampart_NowHp;
 
+    public bool stageFail;
     public Dictionary<string,float> dic = new Dictionary<string, float>(){
         {"Coin", 0},
         {"bullet_Damage",20},
@@ -46,12 +47,15 @@ public class GameManager : MonoBehaviour
         Rampart_NowHp -= hitDps;
         if(Rampart_NowHp <=0){
             //게임 오버
-            EnemyManager.Instance.stageClear = true;
+            stageFail = false;
             InGameScript.Instance.stageState.text = "StageFail";
             InGameScript.Instance.stageState.color = Color.red;
+            EnemyManager.Instance.spawnEnemys.RemoveRange(0,EnemyManager.Instance.spawnEnemys.Count); 
+            EnemyManager.Instance.left_enemy =0;        
+            EnemyManager.Instance.stageClear = true;
         }
         InGameScript.Instance.Rampart_Hp_Ui.value = Rampart_NowHp / dic["Rampart_MaxHp"];
-        InGameScript.Instance.coinTex.text = Rampart_NowHp.ToString();
+        // InGameScript.Instance.coinTex.text = Rampart_NowHp.ToString();
     }
     public void Reset(){
         float a =  Rampart_NowHp - dic["Rampart_MaxHp"];
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
         InGameScript.Instance.stageTex.text = (GameManager.Instance.stage+1)+" 스테이지";
         InGameScript.Instance.stageState.text = "StageClear";
         InGameScript.Instance.stageState.color = Color.white;
+        
         //리셋할것 추가
     }
 

@@ -22,7 +22,7 @@ public class ItemPenal : MonoBehaviour
 
     public ShopManager SM;
 
-    public string Name;
+    public string dicName;
     
     void Start()
     {
@@ -49,10 +49,12 @@ public class ItemPenal : MonoBehaviour
         levelTex.text = level.ToString() + "Level";
         pay += addPay;
         payTex.text = pay.ToString() + "원";
-        GameManager.Instance.dic[Name] += addStat;
+        GameManager.Instance.dic[dicName] += addStat;
+        Debug.Log(GameManager.Instance.dic[dicName]);
         float coin = GameManager.Instance.dic["Coin"];
         Debug.Log(coin);
         SM.nowMoney.text = coin.ToString()+ " 원";    
+        InGameScript.Instance.coinTex.text = GameManager.Instance.dic["Coin"].ToString();
         
     }
 }

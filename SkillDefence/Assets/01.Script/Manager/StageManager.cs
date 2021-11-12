@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -16,25 +15,40 @@ public class StageManager : MonoBehaviour
 
     public Canvas enemyCanvas;
     public GameObject spawnEnemy;
+
+    public GameObject shop;
+
+    public GameObject inGame;
     private void Start()
     {
+
+        shop.SetActive(false);
+        inGame.SetActive(true);
         List<Dictionary<string, object>> data = CSVReader.Read("DataTable");
 
         StageStart(data);
         stageCanves.alpha = 0;
         nextStageBtn.onClick.AddListener(() =>
         {
+            if(!GameManager.Instance.stageFail){
+                 GameManager.Instance.stage++;
+            }else{
+                GameManager.Instance.stageFail = false;
+            }
+            GameManager.Instance.Reset();
             StageStart(data);
         });
 
         reStart.onClick.AddListener(() =>
         {
-        if (GameManager.Instance.stage > 0) GameManager.Instance.stage--;
+            GameManager.Instance.Reset();
             StageStart(data);
         });
 
         shopBtn.onClick.AddListener(()=>{
-            SceneManager.LoadScene("Shop");
+        GameManager.Instance.Reset();
+        shop.SetActive(true);
+        inGame.SetActive(false);
         });
     }
 
