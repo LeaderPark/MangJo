@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitBase : MonoBehaviour
 {
-    protected float unitHP;
+    public string unitIdentity;  
+    public int indetityNum;
+    public Text myText;
 
-    public virtual void unitSkills()
-    {
-
+    private void Start() {
+        myText = GetComponent<Text>(); 
     }
-    
+
+    public void setUnitText()
+    {
+        myText.text = unitIdentity;
+    }
 }
