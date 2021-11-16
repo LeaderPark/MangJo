@@ -10,7 +10,7 @@ public class MapData
 public class MapSysthem : MonoBehaviour
 {
     public GameObject[] maplock;
-    public static int mapNumber;
+    public int mapNumber;
     
     private static MapSysthem instance;
     public static MapSysthem Instance
@@ -70,7 +70,7 @@ public class MapSysthem : MonoBehaviour
     public void Save()
     {
         MapData mapData = new MapData();
-
+        
         mapData.progress = mapNumber; 
         string save = JsonUtility.ToJson(mapData);
         save = Encryption.Encrypt(save);

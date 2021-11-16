@@ -58,6 +58,8 @@ public class EnemyManager : MonoBehaviour
         if (left_enemy <= 0)
         {
             stageClear = true;
+            MapSysthem.Instance.mapNumber++;
+            MapSysthem.Instance.Save();
             GetCoin(200);
         }
     }
