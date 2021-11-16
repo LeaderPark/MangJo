@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
         {"bullet_Damage",20},
         {"Rampart_MaxHp",100}
     };
-    public int bullet_Damage = 20;
     public void IsDamage(int hitDps)
     {
         Rampart_NowHp -= hitDps;

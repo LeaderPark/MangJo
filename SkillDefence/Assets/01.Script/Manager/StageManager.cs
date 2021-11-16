@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class StageManager : MonoBehaviour
 {
     public Button nextStageBtn;
     public Button reStart;
+    public Button menuBtn;
     public CanvasGroup stageCanves;
 
     public Button shopBtn;
@@ -27,6 +29,7 @@ public class StageManager : MonoBehaviour
         List<Dictionary<string, object>> data = CSVReader.Read("DataTable");
 
         StageStart(data);
+        stageCanves.gameObject.SetActive(false);
         stageCanves.alpha = 0;
         nextStageBtn.onClick.AddListener(() =>
         {
@@ -37,6 +40,10 @@ public class StageManager : MonoBehaviour
             }
             GameManager.Instance.Reset();
             StageStart(data);
+        });
+
+        menuBtn.onClick.AddListener(()=>{
+            SceneManager.LoadScene("MainLoby");
         });
 
         reStart.onClick.AddListener(() =>
@@ -56,11 +63,13 @@ public class StageManager : MonoBehaviour
     {
         if (EnemyManager.Instance.stageClear)
         {
+            stageCanves.gameObject.SetActive(true);
             DOTween.To(() => stageCanves.alpha, x => stageCanves.alpha = x, 1, 0.5f);
         }
         else
         {
             DOTween.To(() => stageCanves.alpha, x => stageCanves.alpha = x, 0, 0.5f);
+            stageCanves.gameObject.SetActive(false);
         }
     }
 

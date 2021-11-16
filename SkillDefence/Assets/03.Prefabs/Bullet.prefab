@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 4
-  bullet_Damage: 20
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64

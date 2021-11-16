@@ -14,7 +14,10 @@ public class BulletMove : MonoBehaviour
     }
     void Update()
     {
-            transform.position += new Vector3(bulletSpeed, -0.2f, 0) * Time.deltaTime;
+        transform.position += new Vector3(bulletSpeed, -0.2f, 0) * Time.deltaTime;
+        if(EnemyManager.Instance.stageClear){
+            Destroy(gameObject);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D col)
@@ -22,13 +25,13 @@ public class BulletMove : MonoBehaviour
         if(col.gameObject.tag == "Enemy")
         {
             EnemyControl EC = col.gameObject.GetComponent<EnemyControl>();
-            EC.IsHit(GameManager.Instance.bullet_Damage);
+            EC.IsHit((int)GameManager.Instance.dic["bullet_Damage"]);
             Destroy(gameObject);
         }
 
     }
     IEnumerator BulletDes(){
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(6f);
         Destroy(gameObject);
     }
 
