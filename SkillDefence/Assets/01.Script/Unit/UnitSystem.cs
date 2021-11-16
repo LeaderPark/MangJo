@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class unitClass
+{
+    public string name;
+    public int star;
+}
+
 public class UnitSystem : MonoBehaviour
 {
+    unitClass unit = new unitClass();
+    public List<GameObject> myunitList = new List<GameObject>();
     public List<string> unitList = new List<string>();
     #region 싱글톤
     private static UnitSystem instance;
@@ -45,6 +53,7 @@ public class UnitSystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    
 }
 
 

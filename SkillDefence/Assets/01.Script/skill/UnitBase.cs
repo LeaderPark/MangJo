@@ -17,4 +17,9 @@ public class UnitBase : MonoBehaviour
     {
         myText.text = unitIdentity;
     }
+
+    public void setUnitIdentitiy(int index)
+    {
+        unitIdentity = index.ToString();
+    }
 }

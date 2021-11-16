@@ -6,16 +6,20 @@ using UnityEngine.UI;
 public class UnitUI : MonoBehaviour
 {
     Text[] unitText; 
-    Button[] buttons;
+    GameObject UnitSelecPanel;
+    GameObject buttons;
+
 
     private void Start() {
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < UnitSystem.Instance.myunitList.Count; i++)
         {
-            buttons[i].GetComponent<UnitBase>().indetityNum = i;
+            GameObject e = Instantiate(buttons, transform.position, Quaternion.identity, UnitSelecPanel.transform);
+            e.GetComponent<UnitBase>().setUnitIdentitiy(i);
+            e.GetComponent<UnitBase>().setUnitText();
         }
     }
 
-    void SelectUnit(string unit)
+    public void SelectUnit(string unit)
     {
         int count = 0;
         if(count == 0)
