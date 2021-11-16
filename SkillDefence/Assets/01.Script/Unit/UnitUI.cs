@@ -34,10 +34,5 @@ public class UnitUI : MonoBehaviour
             unitText[1].text = unit;
             count = 0;
         } 
-
-        void func1()
-        {
-
-        }
     }
 }
