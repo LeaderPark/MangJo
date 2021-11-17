@@ -658,7 +658,6 @@ MonoBehaviour:
   stage: 0
   Rampart_NowHp: 100
   stageFail: 0
-  bullet_Damage: 20
 --- !u!4 &106818972
 Transform:
   m_ObjectHideFlags: 0
@@ -1655,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_Spawn:
-  - {fileID: 884956310051439490, guid: f6c60e99073277e438aefa0bbf46060d, type: 3}
+  - {fileID: 884956310051439490, guid: 3e8851c60cb28504d84051ba2449fd1d, type: 3}
   - {fileID: 884956310051439490, guid: 23f9ad4ad2c644142b744a43ab125f6a, type: 3}
   enemy_amount: 04000000
   enemyHp: {fileID: 8567073280631863573, guid: 895f2b29fa49df74397e9970950346f3, type: 3}

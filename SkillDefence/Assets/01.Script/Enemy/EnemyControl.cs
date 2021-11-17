@@ -27,6 +27,8 @@ public class EnemyControl : MonoBehaviour
 
     public int enemyNum;
 
+    public ParticleSystem hitEffect;
+
     bool isDie;
 
     private void Start()
@@ -72,6 +74,8 @@ public class EnemyControl : MonoBehaviour
             EnemyManager.Instance.GetCoin(15);
             Destroy(enemy_bar.gameObject,1.5f);
             Destroy(gameObject,1.5f);
+        }else{
+            hitEffect.Play();
         }
     }
 

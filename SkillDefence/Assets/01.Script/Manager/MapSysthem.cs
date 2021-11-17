@@ -60,10 +60,10 @@ public class MapSysthem : MonoBehaviour
         {
             Load();
         }
-
+        //여기 버그난다
         for (int i = 0; i < mapNumber; i++)
         {
-            maplock[i].SetActive(false);
+            // maplock[i].SetActive(false);
         }
     }
 
