@@ -11,8 +11,12 @@ public class MenuManager : MonoBehaviour
     public List<Button> menuBtn = new List<Button>();
 
     public int nowMain;
+
+    public AudioSource BGM;
     void Start()
     {
+        //BGM.Play();
+
         transform.localPosition = new Vector2(-350f,0);
         for (int i = 0; i < menuBtn.Count; i++)
         {
@@ -20,8 +24,8 @@ public class MenuManager : MonoBehaviour
 
             menuBtn[i].gameObject.transform.DOScale(0.8f,0);
 
-            menuBtn[i].gameObject.GetComponentsInChildren<Image>()[2].
-            DOColor(new Color(0,0,0,0.65f),0);
+            menuBtn[i].gameObject.GetComponentsInChildren<Image>()[2]
+            .DOColor(new Color(0,0,0,0.65f),0);
         }
         BtnOn(nowMain);
         nextBtn.onClick.AddListener(()=>{

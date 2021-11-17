@@ -16,11 +16,12 @@ public class ShopManager : Singleton<ShopManager>
     public GameObject shop;
 
     public GameObject inGame;
+
+    public AudioSource inGameSound;
+
+    public AudioSource shopSound;
     
     private void Start() {
-
-
-
         exitShop.onClick.AddListener(()=>{
             ExitShop();
         });
@@ -33,6 +34,8 @@ public class ShopManager : Singleton<ShopManager>
         }    
     }
     public void ExitShop(){
+        inGameSound.Play();
+        shopSound.Stop();
         shop.SetActive(false);
         inGame.SetActive(true);
     }

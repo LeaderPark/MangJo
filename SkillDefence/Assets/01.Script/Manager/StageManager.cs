@@ -21,9 +21,13 @@ public class StageManager : MonoBehaviour
     public GameObject shop;
 
     public GameObject inGame;
+
+    public AudioSource inGameSound;
+
+    public AudioSource shopSound;
     private void Start()
     {
-
+        inGameSound.Play();
         shop.SetActive(false);
         inGame.SetActive(true);
         List<Dictionary<string, object>> data = CSVReader.Read("DataTable");
@@ -54,6 +58,8 @@ public class StageManager : MonoBehaviour
 
         shopBtn.onClick.AddListener(()=>{
         GameManager.Instance.Reset();
+        inGameSound.Stop();
+        shopSound.Play();
         shop.SetActive(true);
         inGame.SetActive(false);
         });

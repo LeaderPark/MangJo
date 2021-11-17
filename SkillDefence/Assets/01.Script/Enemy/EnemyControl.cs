@@ -31,6 +31,8 @@ public class EnemyControl : MonoBehaviour
 
     bool isDie;
 
+    public AudioSource deadSound;
+
     private void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -74,6 +76,7 @@ public class EnemyControl : MonoBehaviour
             EnemyManager.Instance.GetCoin(15);
             Destroy(enemy_bar.gameObject,1.5f);
             Destroy(gameObject,1.5f);
+            deadSound.Play();
         }else{
             hitEffect.Play();
         }
