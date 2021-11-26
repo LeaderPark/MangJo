@@ -89,7 +89,6 @@ public class SkillSystem : MonoBehaviour
                 block.GetComponent<SkillBlock>().touchDelegate = UseBlock;
                 skillBlocks.Add(block);
 
-                //string thumbnailPath = soldierUnits[random].GetComponent<SoldierUnit>().GetSkillThumbnail();
                 block.GetComponent<SkillBlock>().InitializeSkillBlock(maxBlockCount, (BlockColor)random, true, "Skill/Call of the Holy Sword/Call of the Holy Sword_sprite");
             }      
         }

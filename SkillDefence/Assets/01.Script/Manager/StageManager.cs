@@ -47,7 +47,7 @@ public class StageManager : MonoBehaviour
         });
 
         menuBtn.onClick.AddListener(()=>{
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("MainLoby");
         });
 
         reStart.onClick.AddListener(() =>

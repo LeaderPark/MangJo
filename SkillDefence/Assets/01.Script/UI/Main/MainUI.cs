@@ -23,17 +23,17 @@ public class MainUI : MonoBehaviour
 
     private void goShop()
     {
-        SceneManager.LoadScene("Shop");
+        //SceneManager.LoadScene("Shop");
     }
 
     private void goMap()
     {
-        SceneManager.LoadScene("Map");
+        //SceneManager.LoadScene("Map");
     }
 
     private void goCharacter()
     {
-        SceneManager.LoadScene("CheckUnit");
+        //SceneManager.LoadScene("CheckUnit");
     }
 
     private void goStage()

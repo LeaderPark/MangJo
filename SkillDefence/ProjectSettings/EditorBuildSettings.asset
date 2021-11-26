@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00.Scenes/InGame.unity
+    path: Assets/00.Scenes/Start.unity
+    guid: 37163e7aaa719db4b8eeb0f718eda4fe
+  - enabled: 1
+    path: Assets/00.Scenes/MainLoby.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/00.Scenes/CheckUnit.unity
+    guid: 71e3d6bdf7ce4ae45954face177d97c7
+  - enabled: 1
+    path: Assets/00.Scenes/GameScene.unity
+    guid: 03274bbeed3920a43b8230546a6a9dcf
+  - enabled: 1
+    path: Assets/00.Scenes/Jinwoo.unity
+    guid: 32dfb54b0ebbd8341980361dbfbd374c
+  - enabled: 1
+    path: Assets/00.Scenes/Map.unity
+    guid: 239e71621e1fcbb4bbc4580dfacc20aa
   - enabled: 1
     path: Assets/00.Scenes/Shop.unity
     guid: cb02ba79bf5f06e48bf4a523491bb0bd
